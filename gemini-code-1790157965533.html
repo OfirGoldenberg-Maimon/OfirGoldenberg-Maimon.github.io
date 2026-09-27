@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אופיר גולדנברג-מימון | ייעוץ הנקה | ליווי התפתחותי</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Secular+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #FAF6F0;
+      --bg-secondary: #F3ECE1;
+      --bg-card: #FFFFFF;
+      --text-main: #4A3E3D;
+      --text-muted: #7A6C65;
+      --accent-brown: #8C5A3C;
+      --accent-light: #D9C3B0;
+      --accent-warm: #C48B60;
+      --border-color: #E6D8CA;
+      --shadow: 0 10px 30px rgba(74, 62, 61, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Assistant', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.7;
+      direction: rtl;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 24px;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* הלוגו המקורי מוגדל בסרגל העליון ל-100 פיקסלים */
+    .logo-img {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--accent-brown);
+      line-height: 1.2;
+    }
+
+    .logo-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .header-cta {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-brown);
+      color: #FFFFFF;
+      border: 2px solid var(--accent-brown);
+    }
+
+    .btn-primary:hover {
+      background-color: #72472E;
+      border-color: #72472E;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(140, 90, 60, 0.25);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--accent-brown);
+      border: 2px solid var(--accent-brown);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--accent-brown);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      border: 2px solid #25D366;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #20BA5A;
+      border-color: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    /* Hero & About Section */
+    .hero {
+      padding: 60px 24px;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .hero-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* הלוגו המקורי מוגדל בכרטיס הראשי לרוחב מרשים של 280 פיקסלים */
+    .hero-card .hero-logo-img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 25px;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-card h3 {
+      font-size: 1.5rem;
+      color: var(--accent-brown);
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      color: var(--accent-warm);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Secular One', sans-serif;
+      font-size: 2.5rem;
+      color: var(--accent-brown);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .about-box {
+      background: var(--bg-card);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-right: 5px solid var(--accent-brown);
+      margin-top: 15px;
+    }
+
+    .about-box h2 {
+      font-size: 1.5rem;
+      color: var(--accent-brown);
+      margin-bottom: 12px;
+    }
+
+    .about-box p {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 70px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px auto;
+    }
+
+    .section-title h2 {
+      font-family: 'Secular One', sans-serif;
+      font-size: 2.2rem;
+      color: var(--accent-brown);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: var(--accent-warm);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(74, 62, 61, 0.12);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--bg-secondary);
+      color: var(--accent-brown);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      color: var(--accent-brown);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* Digital Section */
+    .digital-section {
+      background-color: var(--bg-secondary);
+    }
+
+    .digital-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .digital-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .digital-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--accent-light);
+      color: var(--accent-brown);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .digital-card h3 {
+      font-size: 1.4rem;
+      color: var(--accent-brown);
+      margin-bottom: 14px;
+      padding-left: 60px;
+    }
+
+    .digital-card p {
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .digital-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .digital-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+    }
+
+    .digital-features li i {
+      color: var(--accent-warm);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(180deg, var(--bg-primary) 0%, #EFE5D8 100%);
+      text-align: center;
+    }
+
+    .contact-card {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 45px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-phone {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-brown);
+      margin: 20px 0;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-actions .btn {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-main);
+      color: var(--bg-primary);
+      text-align: center;
+      padding: 30px 24px;
+      font-size: 0.95rem;
+    }
+
+    /* Floating CTA for Mobile */
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      border-radius: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (min-width: 769px) {
+      .floating-cta {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo-img {
+        height: 70px;
+      }
+
+      .hero-card .hero-logo-img {
+        width: 200px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <!-- קובץ התמונה המקורי שלך מוגדל -->
+        <img src="אימהות  הנקה  התפתחות.png" alt="אופיר גולדנברג-מימון - לוגו" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-title">אופיר גולדנברג-מימון</span>
+          <span class="logo-sub">ייעוץ הנקה | ליווי התפתחותי</span>
+        </div>
+      </div>
+      <div class="header-cta">
+        <a href="tel:0544640253" class="btn btn-outline">
+          <i class="fa-solid fa-phone"></i> 054-4640253
+        </a>
+        <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> וואטסאפ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & About Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-image-wrapper">
+        <div class="hero-card">
+          <!-- קובץ התמונה המקורי שלך מוגדל -->
+          <img src="אימהות  הנקה  התפתחות.png" alt="לוגו אופיר גולדנברג-מימון" class="hero-logo-img">
+          <h3>אופיר גולדנברג-מימון</h3>
+          <p>עובדת סוציאלית, מדריכת הנקה ומלווה התפתחותית</p>
+        </div>
+      </div>
+      
+      <div class="hero-content">
+        <h1>נעים להכיר!</h1>
+        <div class="about-box">
+          <h2>היי אמא!</h2>
+          <p>
+            אני אופיר גולדנברג-מימון, בת הזוג של גל ואמא של גיא ונטע. 
+            כעובדת סוציאלית, מדריכת הנקה ומלווה התפתחותית, השליחות שלי היא להעניק לך ולתינוק.ת שלך מעטפת חמה, מקצועית ומותאמת אישית – בכל שלב בדרך.
+          </p>
+        </div>
+        <div style="margin-top: 25px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#services" class="btn btn-primary">לכל השירותים</a>
+          <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> דברי איתי
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- In-Person Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>שירותי ייעוץ וליווי</h2>
+      <p>מעטפת מקצועית ואישית המותאמת בדיוק לצרכים שלך ושל התינוק.ת שלך</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
+          <h3>הכנה להנקה בזום</h3>
+          <p>פגישת הכנה מקיפה באווירה נינוחה מהבית, שתעניק לך את כל הכלים והידע הנדרשים להתחלה רכה ומוצלחת של ההנקה.</p>
+        </div>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20הכנה%20להנקה%20בזום" class="btn btn-outline" style="width: 100%;">תיאום מפגש</a>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+          <h3>ייעוץ הנקה פרטני בביתך</h3>
+          <p>מפגש אישי בסביבה הטבעית והנינוחה שלך, להערכת הנקה, פתרון קשיים, למידת תנוחות נכונות ומתן מענה מדויק עבורכם.</p>
+        </div>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20ייעוץ%20הנקה%20בבית" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><i class="fa-solid fa-clinic-medical"></i></div>
+          <h3>קליניקת הנקה בלפיד</h3>
+          <p>ייעוץ מקצועי בקליניקה נעימה ושקטה בלפיד, עם ציוד מותאם ואווירה רגועה ומחבקת להתמודדות עם כל אתגר.</p>
+        </div>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20קליניקת%20הנקה%20בלפיד" class="btn btn-outline" style="width: 100%;">תיאום תור</a>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><i class="fa-solid fa-child-reaching"></i></div>
+          <h3>ליווי התפתחותי אחת על אחת</h3>
+          <p>פגישה פרטנית המיועדת להערכה ומעקב אחר השלבים ההתפתחותיים של התינוק.ת, תוך מתן תרגילים וכלים מותאמים אישית.</p>
+        </div>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20ליווי%20התפתחותי%20אחת%20על%20אחת" class="btn btn-outline" style="width: 100%;">לתיאום מפגש</a>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>סדנאות ליווי התפתחותי</h3>
+          <p>סדנאות קבוצתיות חווייתיות ומעשירות החלוקות לפי גיל ושלב התפתחותי, המשלבות ידע תיאורטי, תרגול מעשי ומפגש אימהות.</p>
+        </div>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20סדנאות%20ההתפתחות" class="btn btn-outline" style="width: 100%;">להרשמה לסדנה</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Products Section -->
+  <section class="digital-section">
+    <div class="section-title">
+      <h2>שירותים ומוצרים דיגיטליים</h2>
+      <p>כל הכלים והידע המקצועי שאת צריכה, זמינים עבורך בכל זמן ובכל מקום</p>
+    </div>
+
+    <div class="digital-grid">
+      <!-- Digital Product 1 -->
+      <div class="digital-card">
+        <span class="digital-badge">דיגיטלי + ייעוץ</span>
+        <h3>מדריך הכנה להנקה</h3>
+        <p>חבילה דיגיטלית מקיפה הכוללת מדריך כתוב ומפורט עם כל מה שחשוב לדעת לקראת ההנקה, יחד עם שיחת ייעוץ טלפונית אישית.</p>
+        <ul class="digital-features">
+          <li><i class="fa-solid fa-check"></i> מדריך דיגיטלי מפורט לקריאה נוחה</li>
+          <li><i class="fa-solid fa-check"></i> שיחת ייעוץ טלפונית אישית וממוקדת</li>
+          <li><i class="fa-solid fa-check"></i> מענה לשאלות ודגשים ספציפיים עבורך</li>
+        </ul>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לקבל%20פרטים%20על%20מדריך%20הכנה%20להנקה" class="btn btn-primary" style="width: 100%;">לרכישה ופרטים</a>
+      </div>
+
+      <!-- Digital Product 2 -->
+      <div class="digital-card">
+        <span class="digital-badge">דיגיטלי + ייעוץ</span>
+        <h3>מדריך חזרה לעבודה</h3>
+        <p>מעבר חלק ורגוע בחזרה לשגרה: מדריך מקיף לניהול שילוב הנקה, שאיבות, שמירת חלב ואכילה מבקבוק, בליווי שיחת ייעוץ טלפונית.</p>
+        <ul class="digital-features">
+          <li><i class="fa-solid fa-check"></i> מדריך מקיף לשילוב הנקה ושאיבות</li>
+          <li><i class="fa-solid fa-check"></i> שיחת ייעוץ טלפונית לבניית תוכנית אישית</li>
+          <li><i class="fa-solid fa-check"></i> טיפים להסתגלות קלה עבורך ועבור התינוק.ת</li>
+        </ul>
+        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לקבל%20פרטים%20על%20מדריך%20חזרה%20לעבודה" class="btn btn-primary" style="width: 100%;">לרכישה ופרטים</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <h2 style="font-family: 'Secular One', sans-serif; color: var(--accent-brown); font-size: 2rem;">מוזמנת ליצור איתי קשר</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">אני כאן לכל שאלה, התייעצות או תיאום מפגש</p>
+      
+      <a href="tel:0544640253" class="contact-phone">054-4640253</a>
+      
+      <div class="contact-actions">
+        <a href="tel:0544640253" class="btn btn-outline">
+          <i class="fa-solid fa-phone"></i> התקשרי אליי
+        </a>
+        <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> שלחי הודעה בוואטסאפ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© כל הזכויות שמורות - אופיר גולדנברג-מימון | עובדת סוציאלית, מדריכת הנקה ומלווה התפתחותית</p>
+  </footer>
+
+  <!-- Floating Mobile Bar -->
+  <div class="floating-cta">
+    <div style="font-weight: 700; color: var(--accent-brown);">אופיר גולדנברג-מימון</div>
+    <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
+      <i class="fa-brands fa-whatsapp"></i> וואטסאפ
+    </a>
+  </div>
+
+</body>
+</html>
