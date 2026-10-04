@@ -30,6 +30,11 @@
       padding: 0;
     }
 
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Assistant', sans-serif;
       background-color: var(--bg-primary);
@@ -37,14 +42,13 @@
       line-height: 1.7;
       direction: rtl;
       position: relative;
-      overflow-x: hidden;
       background-image: 
         radial-gradient(circle at 10% 20%, rgba(226, 212, 197, 0.4) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(217, 195, 176, 0.35) 0%, transparent 45%);
       background-attachment: fixed;
     }
 
-    /* איורי פרחים בעזרת SVG נקי ברקע */
+    /* איורי פרחים ברקע */
     .flower-bg {
       position: absolute;
       pointer-events: none;
@@ -82,6 +86,7 @@
       z-index: 1000;
       border-bottom: 1px solid var(--border-color);
       padding: 12px 24px;
+      width: 100%;
     }
 
     .nav-container {
@@ -92,6 +97,7 @@
       align-items: center;
       position: relative;
       z-index: 2;
+      width: 100%;
     }
 
     .logo-container {
@@ -104,7 +110,7 @@
       height: 70px;
       width: auto;
       object-fit: contain;
-      mix-blend-mode: multiply;
+      border-radius: 12px;
     }
 
     .logo-text {
@@ -187,6 +193,7 @@
       padding: 70px 24px 60px 24px;
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
     .hero-container {
@@ -196,17 +203,19 @@
       grid-template-columns: 1.1fr 1.2fr;
       gap: 40px;
       align-items: center;
+      width: 100%;
     }
 
     .hero-image-wrapper {
       position: relative;
       text-align: center;
+      width: 100%;
     }
 
     .hero-card {
       background: var(--bg-card);
       backdrop-filter: blur(8px);
-      padding: 30px 20px;
+      padding: 15px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid rgba(255, 255, 255, 0.9);
@@ -215,14 +224,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .hero-card .hero-full-img {
-      width: 340px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 340px;
       height: auto;
-      mix-blend-mode: multiply;
       display: block;
+      border-radius: 16px; /* פינות מעוגלות לתמונת הלוגו */
     }
 
     .hero-content h1 {
@@ -262,6 +272,7 @@
       padding: 75px 24px;
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
     .section-title {
@@ -288,6 +299,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 28px;
+      width: 100%;
     }
 
     .service-card {
@@ -340,14 +352,16 @@
       background: linear-gradient(180deg, rgba(239, 230, 220, 0.5) 0%, rgba(232, 218, 203, 0.3) 100%);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
+      width: 100%;
     }
 
     .digital-grid {
       max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      width: 100%;
     }
 
     .digital-card {
@@ -403,6 +417,7 @@
     .contact-section {
       text-align: center;
       padding: 80px 24px;
+      width: 100%;
     }
 
     .contact-card {
@@ -414,6 +429,7 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid rgba(255, 255, 255, 0.9);
+      width: 100%;
     }
 
     .contact-actions {
@@ -437,6 +453,7 @@
       font-size: 0.95rem;
       position: relative;
       z-index: 2;
+      width: 100%;
     }
 
     .floating-cta {
@@ -473,7 +490,7 @@
       }
 
       .hero-card .hero-full-img {
-        width: 270px;
+        max-width: 270px;
       }
 
       .hero-content h1 {
@@ -489,7 +506,7 @@
       }
       
       .flower-1, .flower-2, .flower-3 {
-        width: 200px;
+        width: 180px;
         opacity: 0.12;
       }
     }
@@ -580,7 +597,7 @@
         <div>
           <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
           <h3>הכנה להנקה בזום</h3>
-          <p>פגישת הכנה מקיפה באווירה נינוחה מהבית, שתעניק לך את כל הכלים והידע الנדרשים להתחלה רכה ומוצלחת של ההנקה.</p>
+          <p>פגישת הכנה מקיפה באווירה נינוחה מהבית, שתעניק לך את כל הכלים והידע הנדרשים להתחלה רכה ומוצלחת של ההנקה.</p>
         </div>
         <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20הכנה%20להנקה%20בזום" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
       </div>
