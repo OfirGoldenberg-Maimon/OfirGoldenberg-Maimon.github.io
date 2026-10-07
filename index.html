@@ -1,700 +1,613 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>אופיר גולדנברג-מימון | ייעוץ הנקה | ליווי התפתחותי</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Secular+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    :root {
-      --bg-primary: #F9F5F0;
-      --bg-secondary: #EFE6DC;
-      --bg-card: rgba(255, 255, 255, 0.88);
-      --text-main: #4A3E3D;
-      --text-muted: #6E5F58;
-      --accent-brown: #7A4B2E;
-      --accent-light: #E8DACB;
-      --accent-warm: #B87A4F;
-      --border-color: #E2D4C5;
-      --shadow: 0 10px 30px rgba(122, 75, 46, 0.07);
-      --radius: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אופיר גולדנברג-מימון | ייעוץ הנקה וליווי התפתחותי</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Assistant & Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-sand': '#F8F4EE',
+                        'pastel-beige': '#EFE8DE',
+                        'pastel-blue': '#DCE8F0',
+                        'pastel-blue-dark': '#8DA9C4',
+                        'pastel-pink': '#F4DCD6',
+                        'pastel-rose': '#E09891',
+                        'pastel-sage': '#E8EFEA',
+                        'brown-dark': '#5C4A42',
+                        'brown-medium': '#8B7368',
+                        'brown-light': '#A68C80'
+                    },
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        heading: ['Rubik', 'Assistant', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -5px rgba(141, 120, 110, 0.12)',
+                        'card': '0 4px 20px rgba(92, 74, 66, 0.05)',
+                        'floating': '0 12px 35px rgba(141, 169, 196, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8F4EE;
+            color: #5C4A42;
+            font-family: 'Assistant', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        .organic-bg {
+            background-color: #F8F4EE;
+            background-image: 
+                radial-gradient(at 10% 10%, #EFE8DE 0px, transparent 50%),
+                radial-gradient(at 90% 20%, #DCE8F0 0px, transparent 50%),
+                radial-gradient(at 80% 80%, #F4DCD6 0px, transparent 50%),
+                radial-gradient(at 20% 90%, #E8EFEA 0px, transparent 50%);
+            background-repeat: no-repeat;
+        }
 
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-    }
+        .wave-shape-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45vw;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(220, 232, 240, 0.5) 0%, rgba(248, 244, 238, 0) 75%);
+            border-bottom-left-radius: 60% 80%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    body {
-      font-family: 'Assistant', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      line-height: 1.7;
-      direction: rtl;
-      position: relative;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(226, 212, 197, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(217, 195, 176, 0.35) 0%, transparent 45%);
-      background-attachment: fixed;
-    }
+        .wave-shape-2 {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 40vw;
+            height: 700px;
+            background: linear-gradient(225deg, rgba(239, 232, 222, 0.6) 0%, rgba(248, 244, 238, 0) 70%);
+            border-top-right-radius: 70% 50%;
+            border-bottom-right-radius: 50% 80%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    /* איורי פרחים ברקע */
-    .flower-bg {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.18;
-      color: var(--accent-brown);
-    }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(141, 120, 110, 0.15);
+        }
 
-    .flower-1 {
-      top: 40px;
-      right: -30px;
-      width: 280px;
-      transform: rotate(-15deg);
-    }
-
-    .flower-2 {
-      top: 650px;
-      left: -40px;
-      width: 320px;
-      transform: rotate(20deg);
-    }
-
-    .flower-3 {
-      bottom: 400px;
-      right: -50px;
-      width: 300px;
-      transform: rotate(-30deg);
-    }
-
-    header {
-      background-color: rgba(249, 245, 240, 0.88);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
-      padding: 12px 24px;
-      width: 100%;
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-img {
-      height: 70px;
-      width: auto;
-      object-fit: contain;
-      border-radius: 12px;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-title {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--accent-brown);
-      line-height: 1.2;
-    }
-
-    .logo-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .header-cta {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-brown);
-      color: #FFFFFF;
-      border: 2px solid var(--accent-brown);
-      box-shadow: 0 4px 15px rgba(122, 75, 46, 0.15);
-    }
-
-    .btn-primary:hover {
-      background-color: #603820;
-      border-color: #603820;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(122, 75, 46, 0.25);
-    }
-
-    .btn-outline {
-      background-color: rgba(255, 255, 255, 0.7);
-      color: var(--accent-brown);
-      border: 2px solid var(--accent-brown);
-      backdrop-filter: blur(4px);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--accent-brown);
-      color: #FFFFFF;
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background-color: #25D366;
-      color: white;
-      border: 2px solid #25D366;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.18);
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #20BA5A;
-      border-color: #20BA5A;
-      transform: translateY(-2px);
-    }
-
-    .hero {
-      padding: 70px 24px 60px 24px;
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
-
-    .hero-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 1.2fr;
-      gap: 40px;
-      align-items: center;
-      width: 100%;
-    }
-
-    .hero-image-wrapper {
-      position: relative;
-      text-align: center;
-      width: 100%;
-    }
-
-    .hero-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      padding: 15px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero-card .hero-full-img {
-      width: 100%;
-      max-width: 340px;
-      height: auto;
-      display: block;
-      border-radius: 16px; /* פינות מעוגלות לתמונת הלוגו */
-    }
-
-    .hero-content h1 {
-      font-family: 'Secular One', sans-serif;
-      font-size: 2.6rem;
-      color: var(--accent-brown);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .about-box {
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      padding: 28px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border-right: 4px solid var(--accent-brown);
-      border-top: 1px solid rgba(255, 255, 255, 0.9);
-      border-left: 1px solid rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-      margin-top: 15px;
-    }
-
-    .about-box h2 {
-      font-size: 1.5rem;
-      color: var(--accent-brown);
-      margin-bottom: 12px;
-    }
-
-    .about-box p {
-      font-size: 1.15rem;
-      color: var(--text-main);
-      line-height: 1.8;
-    }
-
-    section {
-      padding: 75px 24px;
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 50px auto;
-    }
-
-    .section-title h2 {
-      font-family: 'Secular One', sans-serif;
-      font-size: 2.3rem;
-      color: var(--accent-brown);
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-    }
-
-    .services-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-      width: 100%;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      transition: all 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 35px rgba(122, 75, 46, 0.12);
-      background: rgba(255, 255, 255, 0.96);
-    }
-
-    .service-icon {
-      width: 58px;
-      height: 58px;
-      background-color: var(--bg-secondary);
-      color: var(--accent-brown);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-size: 1.35rem;
-      color: var(--accent-brown);
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-
-    .digital-section {
-      background: linear-gradient(180deg, rgba(239, 230, 220, 0.5) 0%, rgba(232, 218, 203, 0.3) 100%);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-      width: 100%;
-    }
-
-    .digital-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      width: 100%;
-    }
-
-    .digital-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      border-radius: var(--radius);
-      padding: 35px 30px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      position: relative;
-    }
-
-    .digital-badge {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: var(--accent-light);
-      color: var(--accent-brown);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    .digital-card h3 {
-      font-size: 1.4rem;
-      color: var(--accent-brown);
-      margin-bottom: 14px;
-    }
-
-    .digital-card p {
-      color: var(--text-main);
-      margin-bottom: 20px;
-    }
-
-    .digital-features {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-
-    .digital-features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      color: var(--text-muted);
-    }
-
-    .digital-features li i {
-      color: var(--accent-warm);
-    }
-
-    .contact-section {
-      text-align: center;
-      padding: 80px 24px;
-      width: 100%;
-    }
-
-    .contact-card {
-      max-width: 650px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      padding: 45px 30px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      width: 100%;
-    }
-
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .contact-actions .btn {
-      padding: 14px 32px;
-      font-size: 1.15rem;
-    }
-
-    footer {
-      background-color: #3A2F2E;
-      color: var(--bg-primary);
-      text-align: center;
-      padding: 30px 24px;
-      font-size: 0.95rem;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
-
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      padding: 12px 20px;
-      border-radius: 40px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-
-    @media (min-width: 769px) {
-      .floating-cta {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .logo-img {
-        height: 55px;
-      }
-
-      .hero-card .hero-full-img {
-        max-width: 270px;
-      }
-
-      .hero-content h1 {
-        font-size: 2.1rem;
-      }
-
-      .header-cta {
-        display: none;
-      }
-
-      body {
-        padding-bottom: 70px;
-      }
-      
-      .flower-1, .flower-2, .flower-3 {
-        width: 180px;
-        opacity: 0.12;
-      }
-    }
-  </style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F4EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A68C80;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B7368;
+        }
+    </style>
 </head>
-<body>
+<body class="relative min-h-screen organic-bg">
 
-  <!-- איורי פרחים מאוירים עדינים בקו רך ברקע -->
-  <svg class="flower-bg flower-1" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 140 C100 140 90 100 60 80 C40 65 20 80 30 100 C40 120 70 110 100 140 Z"/>
-    <path d="M100 140 C100 140 110 100 140 80 C160 65 180 80 170 100 C160 120 130 110 100 140 Z"/>
-    <path d="M100 140 C100 140 70 120 50 140 C35 155 50 175 70 170 C90 165 95 145 100 140 Z"/>
-    <path d="M100 140 C100 140 130 120 150 140 C165 155 150 175 130 170 C110 165 105 145 100 140 Z"/>
-    <path d="M100 140 Q100 180 95 200"/>
-    <path d="M98 165 C80 160 65 165 60 175"/>
-    <circle cx="100" cy="135" r="6" fill="currentColor" opacity="0.3"/>
-  </svg>
+<!-- Background Wave Art Overlays -->
+<div class="wave-shape-1"></div>
+<div class="wave-shape-2"></div>
 
-  <svg class="flower-bg flower-2" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 180 Q105 120 110 30"/>
-    <path d="M108 100 C130 85 150 90 160 105 C140 115 120 110 108 100 Z"/>
-    <path d="M104 130 C80 115 60 120 50 135 C70 145 90 140 104 130 Z"/>
-    <path d="M109 70 C125 55 140 60 150 72 C135 80 120 77 109 70 Z"/>
-    <circle cx="110" cy="30" r="4" fill="currentColor"/>
-    <circle cx="102" cy="38" r="3" fill="currentColor"/>
-    <circle cx="118" cy="36" r="3" fill="currentColor"/>
-  </svg>
-
-  <svg class="flower-bg flower-3" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 150 C100 100 60 70 100 20 C140 70 100 100 100 150 Z"/>
-    <path d="M100 150 C70 120 30 110 20 80 C50 70 80 100 100 150 Z"/>
-    <path d="M100 150 C130 120 170 110 180 80 C150 70 120 100 100 150 Z"/>
-    <path d="M100 150 L100 200"/>
-  </svg>
-
-  <header>
-    <div class="nav-container">
-      <div class="logo-container">
-        <img src="IMG-20261003-WA0006.jpg" alt="אופיר גולדנברג-מימון - לוגו" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-title">אופיר גולדנברג-מימון</span>
-          <span class="logo-sub">ייעוץ הנקה | ליווי התפתחותי</span>
-        </div>
-      </div>
-      <div class="header-cta">
-        <a href="tel:0544640253" class="btn btn-outline">
-          <i class="fa-solid fa-phone"></i> 054-4640253
+<!-- Header Navigation -->
+<header class="sticky top-0 z-40 bg-pastel-sand/90 backdrop-blur-md border-b border-pastel-beige transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo / Brand Name -->
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/80 border border-pastel-beige flex items-center justify-center shadow-sm overflow-hidden group-hover:scale-105 transition-transform">
+                <img src="watermarked_img_9727528686982683443.jpg" 
+                     alt="לוגו אופיר - הנקה והתפתחות" 
+                     class="w-full h-full object-contain p-1 mix-blend-multiply">
+            </div>
+            <div>
+                <span class="font-heading font-bold text-xl text-brown-dark block leading-tight">אופיר גולדנברג-מימון</span>
+                <span class="text-xs text-brown-medium block">ייעוץ הנקה וליווי התפתחותי</span>
+            </div>
         </a>
-        <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i> וואטסאפ
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-brown-dark/80 text-base">
+            <a href="#about" class="hover:text-pastel-blue-dark transition-colors">אודות</a>
+            <a href="#services" class="hover:text-pastel-blue-dark transition-colors">שירותים</a>
+            <a href="#tracks" class="hover:text-pastel-blue-dark transition-colors">מסלולים</a>
+            <a href="#guides" class="hover:text-pastel-blue-dark transition-colors">מדריכים דיגיטליים</a>
+        </nav>
+
+        <!-- Header CTA Button -->
+        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9B%D7%95%D7%93%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-pastel-blue-dark hover:bg-brown-medium text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg text-sm sm:text-base">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>דברי איתי</span>
         </a>
-      </div>
     </div>
-  </header>
+</header>
 
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-image-wrapper">
-        <div class="hero-card">
-          <img src="IMG-20261003-WA0006.jpg" alt="אופיר גולדנברג-מימון - אימהות | הנקה | התפתחות" class="hero-full-img">
-        </div>
-      </div>
-      
-      <div class="hero-content">
-        <h1>נעים להכיר!</h1>
-        <div class="about-box">
-          <h2>היי אמא!</h2>
-          <p>
-            אני אופיר גולדנברג-מימון, בת הזוג של גל ואמא של גיא ונטע. 
-            כעובדת סוציאלית, מדריכת הנקה ומלווה התפתחותית, השליחות שלי היא להעניק לך ולתינוק.ת שלך מעטפת חמה, מקצועית ומותאמת אישית – בכל שלב בדרך.
-          </p>
-        </div>
-        <div style="margin-top: 25px;">
-          <a href="#services" class="btn btn-primary">לכל השירותים</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<main class="relative z-10 overflow-hidden">
 
-  <section id="services">
-    <div class="section-title">
-      <h2>שירותי ייעוץ וליווי</h2>
-      <p>מעטפת מקצועית ואישית המותאמת בדיוק לצרכים שלך ושל התינוק.ת שלך</p>
-    </div>
+    <!-- Hero / Intro Section -->
+    <section id="about" class="relative pt-10 pb-16 md:pt-16 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
+            
+            <!-- Hero Text Content -->
+            <div class="md:col-span-7 space-y-6 text-right">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pastel-blue/60 text-brown-dark text-sm font-semibold tracking-wide border border-pastel-blue-dark/20">
+                    <i class="fa-regular fa-heart text-pastel-blue-dark"></i>
+                    <span>מלווה אותך בצעדים הראשונים</span>
+                </div>
 
-    <div class="services-grid">
-      <div class="service-card">
+                <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brown-dark leading-tight">
+                    היי אמא!
+                </h1>
+
+                <div class="flex flex-wrap gap-2 pt-1 text-sm sm:text-base">
+                    <span class="bg-pastel-beige text-brown-dark px-3.5 py-1 rounded-full font-medium border border-brown-light/20">עובדת סוציאלית</span>
+                    <span class="bg-pastel-pink text-brown-dark px-3.5 py-1 rounded-full font-medium border border-pastel-rose/20">מדריכת הנקה</span>
+                    <span class="bg-pastel-blue text-brown-dark px-3.5 py-1 rounded-full font-medium border border-pastel-blue-dark/20">מלווה התפתחותית</span>
+                </div>
+
+                <div class="space-y-4 text-lg text-brown-medium leading-relaxed font-normal pt-2">
+                    <p class="text-brown-dark font-semibold text-xl sm:text-2xl">
+                        אני אופיר, אשתו של גל ואמא של גיא ונטע.
+                    </p>
+                    <p class="text-base sm:text-lg">
+                        היה לי מסע לא פשוט בכלל עם בני הבכור, גיא, בכל הנוגע להנקה והתפתחות. התמודדתי עם שלל קשיים ומתוכם צמח בי הרצון להיות שם בשביל אימהות אחרות.
+                    </p>
+                </div>
+
+                <div class="pt-4 flex flex-wrap gap-4 items-center">
+                    <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%A2%D7%A5%20%D7%90%D7%99%D7%AA%D7%9A" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-3 bg-brown-medium hover:bg-brown-dark text-white text-lg font-semibold px-7 py-3.5 rounded-full shadow-soft hover:shadow-floating transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>בואי נדבר ב-WhatsApp</span>
+                    </a>
+
+                    <a href="#services" 
+                       class="inline-flex items-center gap-2 bg-white/90 hover:bg-white text-brown-dark text-base font-medium px-6 py-3.5 rounded-full border border-pastel-beige shadow-sm transition-all">
+                        <span>לכל השירותים</span>
+                        <i class="fa-solid fa-arrow-down text-xs text-brown-medium"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Integrated 3D Wood Drop Logo & Image Section -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -inset-3 bg-gradient-to-tr from-pastel-blue via-pastel-beige to-pastel-pink rounded-[40px] transform rotate-2 opacity-80 blur-sm"></div>
+                    
+                    <div class="relative bg-white/90 p-6 rounded-[36px] border border-pastel-beige shadow-soft text-center flex flex-col items-center">
+                        <div class="w-full max-w-[320px] mb-2 overflow-hidden flex justify-center items-center">
+                            <!-- 3D Wood Drop Logo (Seamless Blend) -->
+                            <img src="watermarked_img_9727528686982683443.jpg" 
+                                 alt="אופיר גולדנברג-מימון - לוגו 3D" 
+                                 class="w-full h-auto object-contain mix-blend-multiply drop-shadow-md hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <div class="pt-2 border-t border-pastel-beige/80 w-full">
+                            <p class="text-sm text-brown-dark font-bold">אופיר גולדנברג-מימון</p>
+                            <p class="text-xs text-brown-medium font-medium mt-0.5">מלווה מתוך ניסיון אישי ומקצועי עמוק</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Individual Services Section -->
+    <section id="services" class="py-16 bg-white/70 backdrop-blur-sm relative z-10 border-y border-pastel-beige">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-brown-dark bg-pastel-blue px-3.5 py-1.5 rounded-full inline-block">ייעוץ וליווי</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brown-dark">השירותים שאני מציעה</h2>
+                <p class="text-brown-medium text-base">מפגשים פרטניים וקבוצתיים המותאמים בדיוק לשלב שבו את והתינוק נמצאים</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-white/90 p-7 rounded-3xl border border-pastel-beige shadow-card card-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-pink text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-baby-carriage"></i>
+                            </div>
+                            <span class="font-heading font-bold text-2xl text-brown-dark">500 ₪</span>
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl text-brown-dark">ייעוץ הנקה פרטני</h3>
+                        <p class="text-brown-medium leading-relaxed text-sm sm:text-base">
+                            תמיכה רגישה, אבחון קשיים, מציאת תנוחה נוחה ומענה לאתגרי הנקה בסביבה הביתית והנעימה שלך.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-pastel-beige flex justify-between items-center">
+                        <span class="text-xs text-brown-medium font-medium"><i class="fa-regular fa-clock ml-1"></i> מפגש אישי ממוקד</span>
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%94%D7%A0%D7%A7%D7%94%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="text-brown-medium hover:text-brown-dark font-semibold text-sm inline-flex items-center gap-1">
+                            <span>לתאוּם מפגש</span>
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white/90 p-7 rounded-3xl border border-pastel-beige shadow-card card-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-blue text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-child"></i>
+                            </div>
+                            <span class="font-heading font-bold text-2xl text-brown-dark">350 ₪</span>
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl text-brown-dark">ליווי התפתחותי אחת על אחת</h3>
+                        <p class="text-brown-medium leading-relaxed text-sm sm:text-base">
+                            מפגש מותאם אישית לעידוד התפתחות טבעית, תנועה חופשית וביטחון בתהליך הגדילה של התינוק.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-pastel-beige flex justify-between items-center">
+                        <span class="text-xs text-brown-medium font-medium"><i class="fa-regular fa-user ml-1"></i> מפגש פרונטלי פרטני</span>
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9C%D7%99%D7%95%D7%95%D7%99%20%D7%94%D7%AA%D7%A4%D7%AA%D7%97%D7%95%D7%AA%D7%99%20%D7%90%D7%A7%D7%AA%20%D7%A2%D7%9C%20%D7%90%D7%A7%D7%AA" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="text-brown-medium hover:text-brown-dark font-semibold text-sm inline-flex items-center gap-1">
+                            <span>לתאוּם מפגש</span>
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white/90 p-7 rounded-3xl border border-pastel-beige shadow-card card-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-beige text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <span class="font-heading font-bold text-2xl text-brown-dark">700 ₪</span>
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl text-brown-dark">סדנאות ליווי התפתחותי בקבוצות</h3>
+                        <p class="text-brown-medium leading-relaxed text-sm sm:text-base">
+                            מרחב קבוצתי חם ומחבק לאימהות ותינוקות – דגש על התפתחות, שיתוף, הקשבה וחיבור עם אימהות נוספות.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-pastel-beige flex justify-between items-center">
+                        <span class="text-xs text-brown-medium font-medium"><i class="fa-solid fa-people-group ml-1"></i> סדנה קבוצתית עשירה</span>
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA%20%D7%94%D7%9C%D7%99%D7%95%D7%95%D7%99%20%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%AA%D7%99%D7%95%D7%AA" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="text-brown-medium hover:text-brown-dark font-semibold text-sm inline-flex items-center gap-1">
+                            <span>לפרטים והרשמה</span>
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white/90 p-7 rounded-3xl border border-pastel-beige shadow-card card-hover flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-sage text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <span class="font-heading font-bold text-2xl text-brown-dark">350 ₪</span>
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl text-brown-dark">הכנה להנקה</h3>
+                        <p class="text-brown-medium leading-relaxed text-sm sm:text-base">
+                            מפגש מעשי ומרגיע עוד לפני הלידה, כדי שתגיעי מוכנה, רגועה, בטוחה ועם כל הכלים לצעדים הראשונים.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-pastel-beige flex justify-between items-center">
+                        <span class="text-xs text-brown-medium font-medium"><i class="fa-solid fa-person-pregnant ml-1"></i> לפני הלידה</span>
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%9E%D7%A4%D7%91%D7%A9%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%97%D7%A0%D7%A7%D7%94" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="text-brown-medium hover:text-brown-dark font-semibold text-sm inline-flex items-center gap-1">
+                            <span>לתאוּם מפגש</span>
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="tracks" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto z-10 relative">
+        <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-brown-dark bg-pastel-beige px-3.5 py-1.5 rounded-full inline-block">מעטפת שלמה</span>
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brown-dark">מסלולי ליווי מקיפים</h2>
+            <p class="text-brown-medium text-base">תהליך עומק וליווי צמוד במבט כולל על התפתחות והנקה לאורך זמן</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Track 1: התחלה רכה -->
+            <div class="bg-white/95 rounded-3xl p-8 border-2 border-pastel-beige shadow-soft flex flex-col justify-between relative card-hover">
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold bg-pastel-pink text-brown-dark px-3 py-1 rounded-full">מלידה ועד 3 חודשים</span>
+                        <h3 class="font-heading font-bold text-2xl text-brown-dark pt-2">התחלה רכה</h3>
+                        <p class="text-brown-medium text-sm leading-relaxed">
+                            מעטפת צמודה לביסוס ההנקה וההתפתחות הראשונית ברגישות ובנחת.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-brown-dark/90">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>שני מפגשים פרונטליים</strong> (בהפרש של 3 שבועות עד חודש).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>מענה רציף ב-WhatsApp</strong> בין המפגשים.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>מענה זמין שבועיים נוספים</strong> לאחר המפגש האחרון.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-8 mt-6 border-t border-pastel-beige space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-xs text-brown-medium">מחיר המסלול:</span>
+                        <span class="font-heading font-extrabold text-3xl text-brown-dark">1,100 ₪</span>
+                    </div>
+                    <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9B%20%D7%90%D7%AA%D7%97%D7%9C%D7%94%20%D7%A8%D7%9B%D7%94" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full text-center bg-brown-medium hover:bg-brown-dark text-white font-semibold py-3 rounded-2xl shadow transition-colors">
+                        הצטרפי למסלול
+                    </a>
+                </div>
+            </div>
+
+            <!-- Track 2: מעבר וצמיחה -->
+            <div class="bg-white rounded-3xl p-8 border-2 border-pastel-blue-dark shadow-floating flex flex-col justify-between relative transform lg:-translate-y-2 card-hover">
+                <div class="absolute -top-3.5 right-1/2 transform translate-x-1/2 bg-pastel-blue-dark text-white text-xs font-bold px-4 py-1 rounded-full shadow">
+                    מומלץ לשלבי המעבר 🌿
+                </div>
+
+                <div class="space-y-6 pt-2">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold bg-pastel-blue text-brown-dark px-3 py-1 rounded-full">מ-4 עד 9 חודשים</span>
+                        <h3 class="font-heading font-bold text-2xl text-brown-dark pt-2">מעבר וצמיחה</h3>
+                        <p class="text-brown-medium text-sm leading-relaxed">
+                            התאמה מדויקת לשלב המעבר למוצקים, זחילה ושינויים בדפוסי ההנקה.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-brown-dark/90">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-pastel-blue-dark mt-1"></i>
+                            <span><strong>מפגש ממוקד הנקה וטעימות</strong> מוצקים.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-pastel-blue-dark mt-1"></i>
+                            <span><strong>מפגש ליווי התפתחותי</strong> מותאם שלב.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-pastel-blue-dark mt-1"></i>
+                            <span><strong>ליווי ברצף ב-WhatsApp</strong> בין הפגישות ושבועיים לאחר מכן.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-8 mt-6 border-t border-pastel-beige space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-xs text-brown-medium">מחיר המסלול:</span>
+                        <span class="font-heading font-extrabold text-3xl text-pastel-blue-dark">1,300 ₪</span>
+                    </div>
+                    <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A1%D7%9C%D7%95%D7%9B%20%D7%9E%D7%A2%D7%91%D7%A8%20%D7%95%D7%A6%D7%9E%D7%97%D7%94" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full text-center bg-pastel-blue-dark hover:bg-brown-medium text-white font-semibold py-3 rounded-2xl shadow transition-colors">
+                        הצטרפי למסלול
+                    </a>
+                </div>
+            </div>
+
+            <!-- Track 3: כרטיסיית ליווי התפתחותי -->
+            <div class="bg-white/95 rounded-3xl p-8 border-2 border-pastel-beige shadow-soft flex flex-col justify-between relative card-hover">
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold bg-pastel-beige text-brown-dark px-3 py-1 rounded-full">מלידה ועד גיל שנתיים</span>
+                        <h3 class="font-heading font-bold text-2xl text-brown-dark pt-2">כרטיסיית התפתחות</h3>
+                        <p class="text-brown-medium text-sm leading-relaxed">
+                            מעקב וליווי לאורך כל אבני הדרך ההתפתחותיות של התינוק.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-brown-dark/90">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>4 מפגשים פרונטליים פרטניים</strong> בקצב שלכם.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>מענה זמין ב-WhatsApp</strong> בין המפגשים.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-brown-medium mt-1"></i>
+                            <span><strong>תמיכה שבועיים נוספים</strong> לאחר המפגש האחרון.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-8 mt-6 border-t border-pastel-beige space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-xs text-brown-medium">מחיר הכרטיסייה:</span>
+                        <span class="font-heading font-extrabold text-3xl text-brown-dark">1,500 ₪</span>
+                    </div>
+                    <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9B%D7%A8%D7%90%D7%99%D7%A1%D7%99%D7%AA%20%D7%94%D7%9C%D7%99%D7%95%D7%95%D7%99%20%D7%94%D7%AA%D7%A4%D7%AA%D7%97%D7%95%D7%AA%D7%99" 
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full text-center bg-brown-dark hover:bg-brown-medium text-white font-semibold py-3 rounded-2xl shadow transition-colors">
+                        לרכישת כרטיסייה
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Digital Guides Section -->
+    <section id="guides" class="py-16 bg-white/60 backdrop-blur border-y border-pastel-beige z-10 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-brown-dark bg-pastel-blue px-3.5 py-1.5 rounded-full inline-block">למידה בזמן שלך</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-brown-dark">מדריכים דיגיטליים</h2>
+                <p class="text-brown-medium text-base">ידע מקצועי ושימושי שנשאר איתך לתמיד, כולל שיחת ייעוץ אישית</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- Digital Guide 1 -->
+                <div class="bg-white rounded-3xl p-7 border border-pastel-beige shadow-card flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-pink text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <span class="font-heading font-extrabold text-2xl text-brown-dark">120 ₪</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brown-dark">מדריך הכנה להנקה</h3>
+                            <p class="text-xs text-brown-medium font-medium mt-0.5">מדריך דיגיטלי + שיחת ייעוץ אישית</p>
+                        </div>
+
+                        <div class="space-y-2 text-sm text-brown-medium leading-relaxed">
+                            <p><strong>למי מתאים?</strong> לנשים בהריון שרוצות להגיע מוכנות ובטוחות ליום שאחרי הלידה.</p>
+                            <p><strong>מה המדריך כולל?</strong> מדריך דיגיטלי מפורט שנשאר איתך לתמיד, + שיחת טלפון אישית למענה על שאלות והתייעצות ממוקדת.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-pastel-beige">
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9B%20%D7%9D%D7%99%D7%92%D7%99%D7%90%D7%9C%D7%99%20%D7%9C%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%94%D7%A0%D7%A7%D7%94" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 w-full bg-pastel-pink hover:bg-pastel-beige text-brown-dark font-semibold py-3 rounded-2xl transition-colors text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg text-brown-dark"></i>
+                            <span>לרכישה ולקבלת המדריך</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Digital Guide 2 -->
+                <div class="bg-white rounded-3xl p-7 border border-pastel-beige shadow-card flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-pastel-blue text-brown-dark flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <span class="font-heading font-extrabold text-2xl text-brown-dark">120 ₪</span>
+                        </div>
+
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brown-dark">מדריך חזרה לעבודה</h3>
+                            <p class="text-xs text-brown-medium font-medium mt-0.5">מדריך דיגיטלי + שיחה לבניית תוכנית</p>
+                        </div>
+
+                        <div class="space-y-2 text-sm text-brown-medium leading-relaxed">
+                            <p><strong>למי מתאים?</strong> לאימהות לקראת חזרה למעגל העבודה שרוצות מעבר חלק ונינוח.</p>
+                            <p><strong>מה המדריך כולל?</strong> מדריך דיגיטלי מפורט שנשאר איתך, + שיחת טלפון אישית לבניית תוכנית עבודה, שאיבות או שילוב שגרה מותאמת.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-pastel-beige">
+                        <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A8%D7%9B%D7%95%D7%A9%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9B%20%D7%9D%D7%99%D7%92%D7%99%D7%90%D7%9C%D7%99%20%D7%9C%D7%97%D7%96%D7%A8%D7%94%20%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 w-full bg-pastel-blue hover:bg-pastel-beige text-brown-dark font-semibold py-3 rounded-2xl transition-colors text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg text-brown-dark"></i>
+                            <span>לרכישה ולקבלת המדריך</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Warm Empathic Quote Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center z-10 relative">
+        <div class="bg-white/80 backdrop-blur rounded-3xl p-8 sm:p-12 border border-pastel-beige shadow-soft space-y-4">
+            <div class="w-12 h-12 mx-auto rounded-full bg-pastel-beige text-brown-dark flex items-center justify-center text-xl">
+                <i class="fa-solid fa-quote-right"></i>
+            </div>
+            <p class="font-heading font-medium text-xl sm:text-2xl text-brown-dark leading-relaxed">
+                "אני מאמינה שכל אמא וכל תינוק עוברים דרך ייחודית. הליווי שלי מגיע מתוך הקשבה בגובה העיניים, ללא שיפוטיות, ובקצב שמתאים בול לך ולתינוק שלך."
+            </p>
+            <span class="block text-brown-medium font-bold text-base pt-2">אופיר גולדנברג-מימון</span>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-brown-dark text-pastel-sand py-12 border-t border-pastel-beige relative z-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <div>
-          <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
-          <h3>הכנה להנקה בזום</h3>
-          <p>פגישת הכנה מקיפה באווירה נינוחה מהבית, שתעניק לך את כל הכלים והידע הנדרשים להתחלה רכה ומוצלחת של ההנקה.</p>
+            <h4 class="font-heading font-bold text-2xl text-pastel-sand">אופיר גולדנברג-מימון</h4>
+            <p class="text-xs text-pastel-sand/70 mt-1">עובדת סוציאלית | מדריכת הנקה | מלווה התפתחותית</p>
         </div>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20הכנה%20להנקה%20בזום" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
-      </div>
 
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
-          <h3>ייעוץ הנקה פרטני בביתך</h3>
-          <p>מפגש אישי בסביבה הטבעית והנינוחה שלך, להערכת הנקה, פתרון קשיים, למידת תנוחות נכונות ומתן מענה מדויק עבורכם.</p>
+        <div class="flex justify-center items-center gap-6 text-sm text-pastel-sand/80">
+            <a href="tel:0544640253" class="hover:text-pastel-blue transition-colors">
+                <i class="fa-solid fa-phone ml-2"></i>054-4640253
+            </a>
+            <span>•</span>
+            <a href="https://wa.me/972544640253" target="_blank" class="hover:text-pastel-blue transition-colors">
+                <i class="fa-brands fa-whatsapp ml-2"></i>שליחת הודעה
+            </a>
         </div>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20ייעוץ%20הנקה%20בבית" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
-      </div>
 
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><i class="fa-solid fa-clinic-medical"></i></div>
-          <h3>קליניקת הנקה בלפיד</h3>
-          <p>ייעוץ מקצועי בקליניקה נעימה ושקטה בלפיד, עם ציוד מותאם ואווירה רגועה ומחבקת להתמודדות עם כל אתגר.</p>
+        <div class="pt-6 border-t border-white/10 text-xs text-pastel-sand/50">
+            <p>© כל הזכויות שמורות לאופיר - ייעוץ הנקה וליווי התפתחותי</p>
         </div>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20קליניקת%20הנקה%20בלפיד" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
-      </div>
-
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><i class="fa-solid fa-child-reaching"></i></div>
-          <h3>ליווי התפתחותי אחת על אחת</h3>
-          <p>פגישה פרטנית המיועדת להערכה ומעקב אחר השלבים ההתפתחותיים של התינוק.ת, תוך מתן תרגילים וכלים מותאמים אישית.</p>
-        </div>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20ליווי%20התפתחותי%20אחת%20על%20אחת" class="btn btn-outline" style="width: 100%;">לפרטים ותיאום</a>
-      </div>
-
-      <div class="service-card">
-        <div>
-          <div class="service-icon"><i class="fa-solid fa-users"></i></div>
-          <h3>סדנאות ליווי התפתחותי</h3>
-          <p>סדנאות קבוצתיות חווייתיות ומעשירות החלוקות לפי גיל ושלב התפתחותי, המשלבות ידע תיאורטי, תרגול מעשי ומפגש אימהות.</p>
-        </div>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לשמוע%20פרטים%20על%20סדנאות%20ההתפתחות" class="btn btn-outline" style="width: 100%;">להרשמה לסדנה</a>
-      </div>
     </div>
-  </section>
+</footer>
 
-  <section class="digital-section">
-    <div class="section-title">
-      <h2>שירותים ומוצרים דיגיטליים</h2>
-      <p>כל הכלים והידע המקצועי שאת צריכה, זמינים עבורך בכל זמן ובכל מקום</p>
-    </div>
-
-    <div class="digital-grid">
-      <div class="digital-card">
-        <span class="digital-badge">דיגיטלי + ייעוץ</span>
-        <h3>מדריך הכנה להנקה</h3>
-        <p>חבילה דיגיטלית מקיפה הכוללת מדריך כתוב ומפורט עם כל מה שחשוב לדעת לקראת ההנקה, יחד עם שיחת ייעוץ טלפונית אישית.</p>
-        <ul class="digital-features">
-          <li><i class="fa-solid fa-check"></i> מדריך דיגיטלי מפורט לקריאה נוחה</li>
-          <li><i class="fa-solid fa-check"></i> שיחת ייעוץ טלפונית אישית וממוקדת</li>
-          <li><i class="fa-solid fa-check"></i> מענה לשאלות ודגשים ספציפיים עבורך</li>
-        </ul>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לקבל%20פרטים%20על%20מדריך%20הכנה%20להנקה" class="btn btn-primary" style="width: 100%;">לרכישה ופרטים</a>
-      </div>
-
-      <div class="digital-card">
-        <span class="digital-badge">דיגיטלי + ייעוץ</span>
-        <h3>מדריך חזרה לעבודה</h3>
-        <p>מעבר חלק ורגוע בחזרה לשגרה: מדריך מקיף לניהול שילוב הנקה, שאיבות, שמירת חלב ואכילה מבקבוק, בליווי שיחת ייעוץ טלפונית.</p>
-        <ul class="digital-features">
-          <li><i class="fa-solid fa-check"></i> מדריך מקיף לשילוב הנקה ושאיבות</li>
-          <li><i class="fa-solid fa-check"></i> שיחת ייעוץ טלפונית לבניית תוכנית אישית</li>
-          <li><i class="fa-solid fa-check"></i> טיפים להסתגלות קלה עבורך ועבור התינוק.ת</li>
-        </ul>
-        <a href="https://wa.me/972544640253?text=היי%20אופיר,%20אשמח%20לקבל%20פרטים%20על%20מדריך%20חזרה%20לעבודה" class="btn btn-primary" style="width: 100%;">לרכישה ופרטים</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <div class="contact-card">
-      <h2 style="font-family: 'Secular One', sans-serif; color: var(--accent-brown); font-size: 1.8rem;">כדי לחשוב יחד מה את מחפשת, ומה הכי מתאים לך</h2>
-      
-      <div class="contact-actions">
-        <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i> תשלחי לי הודעה
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© כל הזכויות שמורות - אופיר גולדנברג-מימון | עובדת סוציאלית, מדריכת הנקה ומלווה התפתחותית</p>
-  </footer>
-
-  <div class="floating-cta">
-    <div style="font-weight: 700; color: var(--accent-brown);">אופיר גולדנברג-מימון</div>
-    <a href="https://wa.me/972544640253" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
-      <i class="fa-brands fa-whatsapp"></i> וואטסאפ
+<!-- Floating WhatsApp Action Button -->
+<div class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/972544640253?text=%D7%94%D7%99%20%D7%90%D7%95%D7%A4%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9B%D7%95%D7%93%20%D7%A4%D7%A8%D7%90%D7%99%D7%9D" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="דברי איתי ב-WhatsApp"
+       class="group flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-floating transition-all duration-300 transform hover:scale-105">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-sm font-bold pl-1">
+            דברי איתי ב-WhatsApp
+        </span>
     </a>
-  </div>
+</div>
 
 </body>
 </html>
